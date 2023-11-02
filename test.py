@@ -9,7 +9,7 @@ example_chat = [
 ]
 
 for template in ('llama-2', 'vicuna', 'alpaca', 'chatml'):
-	prompt = format_chat_prompt(
+	prompt, _ = format_chat_prompt(
 		template=template,
 		messages=example_chat
 	)
