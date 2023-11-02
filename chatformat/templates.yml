@@ -1,0 +1,65 @@
+llama-2:
+  with_system: |-
+    <s>[INST] <<SYS>>
+    {system}
+    <</SYS>>
+
+    {user} [/INST] {assistant}</s>
+
+  without_system: |-
+    <s>[INST] {user} [/INST] {assistant}</s>
+
+
+vicuna:
+  with_system: |-
+    {system}
+
+    USER: {user}
+    ASSISTANT: {assistant}</s>
+
+  without_system: |-
+    USER: {user}
+    ASSISTANT: {assistant}</s>
+
+  system_default: |-
+    A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions.
+
+  round_seperator: "\n"
+
+
+alpaca:
+  with_system: |-
+    {system}
+
+    ### Instruction:
+    {user}
+
+    ### Response:
+    {assistant}</s>
+
+  without_system: |-
+    ### Instruction:
+    {user}
+
+    ### Response:
+    {assistant}</s>
+
+  round_seperator: "\n\n"
+
+
+chatml:
+  with_system: |-
+    <|im_start|>system
+    {system}<|im_end|>
+    <|im_start|>user
+    {user}<|im_end|>
+    <|im_start|>assistant
+    {assistant}<|im_end|>
+
+  without_system: |-
+    <|im_start|>user
+    {user}<|im_end|>
+    <|im_start|>assistant
+    {assistant}<|im_end|>
+
+  round_seperator: "\n"
