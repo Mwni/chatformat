@@ -32,6 +32,8 @@ pip install chatformat
 
 ## Supported Formats
 
+Run the `test.py` script to see all formats in action.
+
 ### Llama-2
 
 ```
