@@ -1,0 +1,2 @@
+class ChatFormatException(Exception):
+	pass
