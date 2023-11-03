@@ -8,7 +8,7 @@ example_chat = [
 	{'role': 'assistant', 'content': 'I think that'},
 ]
 
-for template in ('llama-2', 'vicuna', 'alpaca', 'chatml'):
+for template in ('llama-2', 'vicuna', 'alpaca', 'chatml', 'human-response'):
 	prompt, _ = format_chat_prompt(
 		template=template,
 		messages=example_chat

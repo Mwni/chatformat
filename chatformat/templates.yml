@@ -63,3 +63,23 @@ chatml:
     {assistant}<|im_end|>
 
   round_seperator: "\n"
+
+
+human-response:
+  with_system: |-
+    {system}
+
+    ### HUMAN:
+    {user}
+
+    ### RESPONSE:
+    {assistant}
+
+  without_system: |-
+    ### HUMAN:
+    {user}
+
+    ### RESPONSE:
+    {assistant}
+
+  round_seperator: "\n\n"
