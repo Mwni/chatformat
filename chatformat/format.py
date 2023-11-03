@@ -41,12 +41,15 @@ def format_chat_prompt(template, messages):
 		if 'round_seperator' in template 
 		else ''
 	).join(blocks)
+
+	if 'stop' in template:
+		stop = template['stop']
+	else:
+		stop = template['without_system'].split('{assistant}')[1]
+
+		if len(stop) == 0:
+			stop = None
 	
-	stop = (
-		template['stop']
-		if 'stop' in template
-		else template['without_system'].split('{assistant}')[1]
-	)
 
 	return final_prompt, stop
 
