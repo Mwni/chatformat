@@ -67,9 +67,9 @@ chatml:
 
 human-response:
   with_system: |-
+    ### HUMAN:
     {system}
 
-    ### HUMAN:
     {user}
 
     ### RESPONSE:
