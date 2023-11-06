@@ -8,13 +8,18 @@ with open(os.path.join(os.path.dirname(__file__), 'templates.yml')) as f:
 
 
 def format_chat_prompt(template, messages):
-	if template not in templates:
-		raise ChatFormatException('No chat template for "%s" defined' % template)
-	
+	if type(template) == dict:
+		if 'with_system' not in template or 'without_system' not in template:
+			raise ChatFormatException('Custom templates must define "with_system" and "without_system"')
+	else:
+		if template not in templates:
+			raise ChatFormatException('No chat template for "%s" defined' % template)
+		else:
+			template = templates[template]
+		
 	if len(messages) == 0:
 		raise ChatFormatException('No messages passed (message list is empty)')
 	
-	template = templates[template]
 	system, rounds = split_messages(messages)
 	blocks = []
 

@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
 	name='chatformat',
-	version='1.1',
+	version='1.2',
 	packages=[
 		'chatformat',
 	],
