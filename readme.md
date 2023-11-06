@@ -80,3 +80,40 @@ How are you?<|im_end|>
 I am doing well!<|im_end|>
 ```
 
+## Custom Formats
+
+You can pass a dictionary as template to `format_chat_prompt`, which describes your custom format.
+
+```py
+from chatformat import format_chat_prompt
+
+prompt, stop = format_chat_prompt(
+	template={
+		'with_system': (
+			'>system: {system}\n'
+			'>user: {user}\n'
+			'>assistant: {assistant}'
+			'</s>'
+		),
+		'without_system': (
+			'>user: {user}\n'
+			'>assistant: {assistant}'
+			'</s>'
+		),
+		'round_seperator': '\n'
+	},
+	messages=[
+		{'role': 'system', 'content': 'You are a very clever LLM.'},
+		{'role': 'user', 'content': 'Hello?'}
+	]
+)
+```
+The custom template dictionary shall be structured as follows
+|Key|Purpose|
+|--|--|
+|`with_system`|Defines the first round if a system prompt is set.|
+|`without_system`|Defines consecutive rounds, and/or first if no system prompt is set.|
+|`round_seperator`|Defines how to join multiple rounds.|
+|`stop`|Defines the stopword(s) to prevent self-talk. Can be an array. If not set, will be derived from any text following `{assistant}`.|
+
+Take a look at [templates.yml](https://github.com/Mwni/chatformat/blob/main/chatformat/templates.yml) for examples.
