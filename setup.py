@@ -9,7 +9,7 @@ setup(
 	package_data={
 		'chatformat': ['*.yml'],
 	},
-	requires=[
+	install_requires=[
 		'pyyaml'
 	]
 )
